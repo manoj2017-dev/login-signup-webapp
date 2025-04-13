@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login & Signup</title>
+</head>
+<body>
+  <h2>Signup</h2>
+  <form id="signup-form">
+    <input placeholder="Name" id="name"><br>
+    <input placeholder="Age" id="age" type="number"><br>
+    <input placeholder="Mobile No" id="mobile"><br>
+    <input placeholder="Gmail" id="gmail"><br>
+    <input placeholder="Password" id="password" type="password"><br>
+    <button type="submit">Signup</button>
+  </form>
+
+  <h2>Login</h2>
+  <form id="login-form">
+    <input placeholder="Gmail" id="login-gmail"><br>
+    <input placeholder="Password" id="login-password" type="password"><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    document.getElementById("signup-form").onsubmit = async (e) => {
+      e.preventDefault();
+      const res = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          age: age.value,
+          mobile_no: mobile.value,
+          gmail: gmail.value,
+          password: password.value,
+        }),
+      });
+      alert(await res.text());
+    };
+
+    document.getElementById("login-form").onsubmit = async (e) => {
+      e.preventDefault();
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          gmail: login-gmail.value,
+          password: login-password.value,
+        }),
+      });
+      alert(await res.text());
+    };
+  </script>
+</body>
+</html>
+
