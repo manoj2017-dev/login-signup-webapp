@@ -1,0 +1,17 @@
+{
+  "name": "login-signup-webapp",
+  "version": "1.0.0",
+  "description": "A simple login and signup web app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.4",
+    "body-parser": "^1.20.2",
+    "mongoose": "^7.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  }
+}
+
